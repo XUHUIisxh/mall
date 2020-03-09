@@ -3,22 +3,30 @@
     <header class="g-header-container">
       <home-header></home-header>
     </header>
-    <div>
-      <home-slider></home-slider>
-    </div>
+    <me-scroll>
+      <home-slider/>
+      <home-nav></home-nav>
+      <home-recommend></home-recommend>
+    </me-scroll>
     <div class="g-backtop-container"></div>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import MeScroll from 'base/scroll'
 import HomeHeader from './header'
 import HomeSlider from './slider'
+import HomeNav from './nav'
+import HomeRecommend from './recommend'
   export default {
     name:'Home',
     components:{
+      MeScroll,
       HomeHeader,
-      HomeSlider
+      HomeSlider,
+      HomeNav,
+      HomeRecommend
     }
   }
 </script>
