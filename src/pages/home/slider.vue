@@ -4,7 +4,7 @@
     <me-slider :direction="direction" :loop="loop" :interval="interval" :pagination="pagination" v-else>
       <swiper-slide v-for="(item,index) in sliders" :key="index">
         <a class="slide-link" :href="item.linkUrl">
-          <img class="slide-img" :src="item.picUrl" alt />
+          <img class="slide-img" :src="item.picUrl" />
         </a>
       </swiper-slide>
     </me-slider>

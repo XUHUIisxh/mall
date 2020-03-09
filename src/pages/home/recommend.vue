@@ -4,10 +4,10 @@
     <div class="loading-container" v-if="!recommends.length">
       <me-loading inline/>
     </div>
-    <ul class="recommend-list">
+    <ul class="recommend-list" v-if="recommends.length"> 
       <li class="recommend-item" v-for="(item,index) in recommends" :key="index">
         <router-link to="">
-          <p class="recommend-pic"><img class="recommend-img" :src="item.baseinfo.picUrlNew"></p>
+          <p class="recommend-pic"><img class="recommend-img" v-lazy="item.baseinfo.picUrlNew"></p>
           <p class="recommend-name">{{ item.name.shortName }}</p>
           <p class="recommend-origPrice">
             <del>￥{{ item.price.origPrice }}</del>
@@ -47,6 +47,7 @@ import MeLoading from 'base/loading';
     },
     methods:{
       getRecommend(){
+        // 当前页码大于总页码 取消动作
         if(this.curPage > this.totalPage){
           return ;
         }
@@ -57,6 +58,8 @@ import MeLoading from 'base/loading';
             this.curPage++;
             this.totalPage = data.totalPage;
             this.recommends = this.recommends.concat(data.itemList)
+            // 向父组件传值 检测recommends的更新
+            this.$emit('loaded',this.recommends)
           }
         })
       }

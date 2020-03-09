@@ -3,13 +3,18 @@
     <span class="mine-loading-indicator">
       <slot><img src="./loading.gif" alt="loading"></slot>
     </span>
-    <span class="mine-loading-text">{{text}}</span>
+    <span class="mine-loading-text">{{loadingText}}</span>
   </div>
 </template>
 
 <script>
   export default {
     name:'MeLoading',
+    data() {
+      return {
+        loadingText: this.text
+      }
+    },
     props:{
       indicator:{
         type:String,
@@ -26,7 +31,19 @@
         type:Boolean,
         default:false
       }
-    }
+    },
+    // 监听传值的修改
+    watch: {
+      text(text){
+        this.loadingText = text
+      }
+    },
+    methods: {
+      // 接受scroll父组件中的值
+      setText(text){
+        this.loadingText = text
+      }
+    },
   }
 </script>
 
