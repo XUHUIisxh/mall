@@ -1,4 +1,4 @@
-# y
+# 实现购物商城
 
 > A Vue.js project
 
@@ -28,3 +28,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 - 安装es6语法转换器 babel-polyfill
 - 安装fastclick 解决移动端300毫秒延迟
+- vue-awesome-swiper 动态加载数据出现的问题以及解决方法
