@@ -8,7 +8,8 @@ import router from './router'
 import fastclick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
 
-import './assets/scss/index.min.css'
+// 引入全局样式
+import './assets/scss/index.min.css';
 // swiper插件库的样式
 import 'swiper/dist/css/swiper.css'
 

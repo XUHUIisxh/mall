@@ -46,22 +46,27 @@ import MeLoading from 'base/loading';
       this.getRecommend()
     },
     methods:{
+      update(){
+        return this.getRecommend();
+      },
+
       getRecommend(){
         // 当前页码大于总页码 取消动作
-        if(this.curPage > this.totalPage){
-          return ;
+        if (this.curPage > this.totalPage) {
+          return Promise.reject(new Error('没有更多了'));
         }
 
-        getHomeRecommend( this.curPage ).then( data => {
-          if(data){
-            console.log(data)
-            this.curPage++;
-            this.totalPage = data.totalPage;
-            this.recommends = this.recommends.concat(data.itemList)
-            // 向父组件传值 检测recommends的更新
-            this.$emit('loaded',this.recommends)
-          }
-        })
+        return getHomeRecommend(this.curPage).then(data => {
+          return new Promise(resolve => {
+            if (data) {
+              this.curPage++;
+              this.totalPage = data.totalPage;
+              this.recommends = this.recommends.concat(data.itemList);
+              this.$emit('loaded', this.recommends);
+              resolve();
+            }
+          });
+        });
       }
     }
   }
