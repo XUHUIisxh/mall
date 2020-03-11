@@ -109,6 +109,7 @@ export default {
       // 获取swiper对象
       const swiper = this.$refs.swiper.swiper;
 
+      // 传出事件
       this.$emit('scroll', swiper.translate, this.$refs.swiper.swiper);
 
       if(this.pulling){

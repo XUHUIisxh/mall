@@ -45,15 +45,15 @@
     }
   }
 
-  // .mine-backtop {
-  //   &-enter-active,
-  //   &-leave-active {
-  //     transition: opacity 0.4s;
-  //   }
+  .mine-backtop {
+    &-enter-active,
+    &-leave-active {
+      transition: opacity 0.4s;
+    }
 
-  //   &-enter,
-  //   &-leave-to {
-  //     opacity: 0;
-  //   }
-  // }
+    &-enter,
+    &-leave-to {
+      opacity: 0;
+    }
+  }
 </style>
