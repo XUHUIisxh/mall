@@ -30,3 +30,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - 安装fastclick 解决移动端300毫秒延迟
 - vue-awesome-swiper 动态加载数据滚动条的问题以及解决方法
   recommend组件中 获取数据之后通过$emit将数据暴露给 home/index ，定义空数据接受传参，在方法池中接收赋值传来的参数，在 me-scroll 组件绑定数组，进入 me-scroll 接收数组，定义方法，当接受的数组长度不等于零的时候调用swiper API中更新数据的方法 解决动态加载数据滚动条失效问题
+
+- axios取消前一次请求 cancel
